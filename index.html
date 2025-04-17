@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Navbar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="background-color:#363130;">
+
+  <nav class="shadow-md" style="background-color:#363130;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center space-x-3">
+          <a href="#" class="flex items-center space-x-2">
+            <span class="text-2xl font-extrabold" style="color:#F4B5A4;">SAJAVAT</span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex space-x-8">
+          <a href="index.html" class="font-medium hover:text-white" style="color:#F4B5A4;">Home</a>
+          <a href="About.html" class="font-medium hover:text-white" style="color:#F4B5A4;">About</a>
+          <a href="#" class="font-medium hover:text-white" style="color:#F4B5A4;">Services</a>
+          <a href="#" class="font-medium hover:text-white" style="color:#F4B5A4;">Contact</a>
+        </div>
+
+        <div class="hidden sm:flex space-x-4">
+          <a href="LOGIN.HTML" class="px-4 py-2 text-sm font-medium border border-gray-500 rounded hover:bg-gray-700" style="color:#F4B5A4;">Login / Sign Up</a>
+        </div>
+
+        <div class="sm:hidden flex items-center">
+          <button type="button" class="p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sm:hidden px-4 pt-2 pb-3 space-y-1">
+      <a href="index.html" class="block font-medium" style="color:#F4B5A4;">Home</a>
+      <a href="About.html" class="block font-medium" style="color:#F4B5A4;">About</a>
+      <a href="#" class="block font-medium" style="color:#F4B5A4;">Services</a>
+      <a href="#" class="block font-medium" style="color:#F4B5A4;">Contact</a>
+      <a href="LOGIN.HTML" class="block font-medium mt-2" style="color:#F4B5A4;">Login / Sign Up</a>
+    </div>
+  </nav>
+
+  <div class="max-w-3xl mx-auto mt-8 px-4 text-center">
+    <h1 class="text-6xl font-extrabold leading-snug" style="color:#F4B5A4;">
+      Transform Your Space,<br>
+      Elevate Your Style.
+    </h1>
+    <div class="flex justify-center mt-8">
+      <div class="flex items-center bg-[#F4B5A4] rounded-full px-4 py-2 w-2/3 sm:w-1/2 shadow-md">
+        <svg class="w-5 h-5 text-[#363130] mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 6.5 6.5a7.5 7.5 0 0 0 10.15 10.15z" />
+        </svg>
+        <input type="text" placeholder="Search your property..." class="flex-grow bg-[#F4B5A4] text-[#363130] placeholder-[#363130] focus:outline-none" />
+        <button class="bg-[#363130] text-white text-sm font-semibold px-4 py-1 rounded-full ml-2">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <div class="relative">
+      <div class="slider w-full overflow-hidden rounded-lg">
+        <div class="slider-images flex transition-transform duration-500 ease-in-out">
+          <img src="imags/Furniture1.jpg" alt="Furniture 1" class="w-full h-auto object-cover">
+          <img src="imags/Furniture2.png" alt="Furniture 2" class="w-full h-auto object-cover">
+          <img src="imags/Furniture3.jpg" alt="Furniture 3" class="w-full h-auto object-cover">
+          <img src="imags/Furniture4.png" alt="Furniture 4" class="w-full h-auto object-cover">
+          <img src="imags/Furniture5.png" alt="Furniture 5" class="w-full h-auto object-cover">
+        </div>
+        <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full" onclick="prevSlide()">❮</button>
+        <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full" onclick="nextSlide()">❯</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="product-container p-6 bg-gray-100 rounded-lg shadow-lg">
+      <img src="imags/Furniture1.jpg" alt="Product Image" class="w-full h-48 md:h-64 object-cover rounded-lg">
+      <h3 class="text-xl font-semibold mt-4">Luxury Wooden Chair</h3>
+      <p class="text-gray-600 mt-2">$350.00</p>
+      <button class="bg-blue-500 text-white py-2 px-6 mt-4 rounded-lg" onclick="openCheckout(1)">Checkout</button>
+    </div>
+
+    <div class="product-container p-6 bg-gray-100 rounded-lg shadow-lg">
+      <img src="imags/Furniture2.png" alt="Product Image" class="w-full h-48 md:h-64 object-cover rounded-lg">
+      <h3 class="text-xl font-semibold mt-4">Elegant Sofa</h3>
+      <p class="text-gray-600 mt-2">$500.00</p>
+      <button class="bg-blue-500 text-white py-2 px-6 mt-4 rounded-lg" onclick="openCheckout(2)">Checkout</button>
+    </div>
+
+    <div class="product-container p-6 bg-gray-100 rounded-lg shadow-lg">
+      <img src="imags/furniture3.jpg" alt="Product Image" class="w-full h-48 md:h-64 object-cover rounded-lg">
+      <h3 class="text-xl font-semibold mt-4">Modern Coffee Table</h3>
+      <p class="text-gray-600 mt-2">$150.00</p>
+      <button class="bg-blue-500 text-white py-2 px-6 mt-4 rounded-lg" onclick="openCheckout(3)">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#363130] text-[#F4B5A4] py-8 mt-20">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+      <div class="flex justify-center items-center space-x-2">
+        <img src="imags/logo.svg" alt="Logo" class="h-28 object-contain">
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Category</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Living Room</a></li>
+          <li><a href="#" class="hover:underline">Bed Room</a></li>
+          <li><a href="#" class="hover:underline">Kitchen</a></li>
+          <li><a href="#" class="hover:underline">Bath Room</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Popular Product</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Single Sofa Black</a></li>
+          <li><a href="#" class="hover:underline">Wooden Bookcase</a></li>
+          <li><a href="#" class="hover:underline">Wooden Chair</a></li>
+          <li><a href="#" class="hover:underline">Luxury White Bed</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Sitemap</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Product</a></li>
+          <li><a href="#" class="hover:underline">Services</a></li>
+          <li><a href="#" class="hover:underline">Article</a></li>
+          <li><a href="#" class="hover:underline">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Follow Us</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Facebook</a></li>
+          <li><a href="#" class="hover:underline">Instagram</a></li>
+          <li><a href="#" class="hover:underline">TikTok</a></li>
+          <li><a href="#" class="hover:underline">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  let currentIndex = 0;
+  const sliderImages = document.querySelector(".slider-images");
+  const totalImages = sliderImages.children.length;
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateSlider();
+  }
+
+  function updateSlider() {
+    const offset = -currentIndex * 100;
+    sliderImages.style.transform = `translateX(${offset}%)`;
+  }
+
+  setInterval(nextSlide, 5000); // Auto slider every 5 sec
+
+  function goToHome() {
+    window.location.href = 'index.html';
+  }
+
+  function openCheckout(productId) {
+    alert("Checkout clicked for Product ID: " + productId);
+  }
+</script>
+
+</body>
+</html>

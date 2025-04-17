@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | SAJAVAT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="background-color:#363130;">
+
+  <!-- Navbar -->
+  <nav class="shadow-md" style="background-color:#363130;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center space-x-3">
+          <a href="#" class="flex items-center space-x-2">
+            <span class="text-2xl font-extrabold" style="color:#F4B5A4;">SAJAVAT</span>
+          </a>
+        </div>
+        <div class="hidden sm:flex space-x-8">
+          <a href="index.html" class="font-medium hover:text-white" style="color:#F4B5A4;">Home</a>
+          <a href="About.html" class="font-medium hover:text-white" style="color:#F4B5A4;">About</a>
+          <a href="#" class="font-medium hover:text-white" style="color:#F4B5A4;">Services</a>
+          <a href="#" class="font-medium hover:text-white" style="color:#F4B5A4;">Contact</a>
+        </div>
+        <div class="hidden sm:flex space-x-4">
+          <a href="LOGIN.HTML" class="px-4 py-2 text-sm font-medium border border-gray-500 rounded hover:bg-gray-700" style="color:#F4B5A4;">Login / Sign Up</a>
+        </div>
+        <div class="sm:hidden flex items-center">
+          <button type="button" class="p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="sm:hidden px-4 pt-2 pb-3 space-y-1">
+      <a href="index.html" class="block font-medium" style="color:#F4B5A4;">Home</a>
+      <a href="About.html" class="block font-medium" style="color:#F4B5A4;">About</a>
+      <a href="#" class="block font-medium" style="color:#F4B5A4;">Services</a>
+      <a href="#" class="block font-medium" style="color:#F4B5A4;">Contact</a>
+      <a href="LOGIN.HTML" class="block font-medium mt-2" style="color:#F4B5A4;">Login</a>
+      <a href="SINGUP.HTML" class="block text-white bg-[#F4B5A4] text-center py-2 rounded mt-1 hover:opacity-90">Sign Up</a>
+    </div>
+  </nav>
+
+  <section class="bg-[#363130] py-16 px-6 md:px-20 text-[#F4B5A4]">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <!-- Image Side -->
+      <div class="rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-500">
+        <img src="imags/logo.svg" alt="Modern Furniture" class="w-full h-full object-cover">
+      </div>
+      <!-- Text Side -->
+      <div class="space-y-6">
+        <h2 class="text-4xl font-extrabold">About SAJAVAT</h2>
+        <p class="text-base leading-relaxed">
+          SAJAVAT is your go-to platform for modern, aesthetic, and functional furniture. Designed with elegance and simplicity in mind, our app helps users find the perfect fit for their home, blending style with comfort.
+        </p>
+        <div class="border-l-4 pl-4 border-[#F4B5A4]">
+          <h3 class="text-2xl font-semibold mb-2">Our Mission</h3>
+          <p class="text-base">
+            Simplify your search for the perfect furniture — through smart design, seamless delivery, and an exceptional browsing experience.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-2">Why Choose Us?</h3>
+          <ul class="list-disc list-inside space-y-2 text-sm">
+            <li>Unique designs curated for modern living.</li>
+            <li>Personalized product recommendations.</li>
+            <li>Real images and customer-first policies.</li>
+            <li>Fast delivery with real-time tracking.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <section class="bg-[#363130] py-16 px-6 md:px-20 text-[#F4B5A4]">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+      <!-- Feedback Form -->
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold mb-4">Leave Your Feedback</h2>
+        <form class="space-y-4">
+          <div>
+            <label class="block text-sm mb-1">Your Name</label>
+            <input type="text" placeholder="Enter your name" class="w-full px-4 py-2 rounded bg-[#4a3f3f] text-[#F4B5A4] focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-sm mb-1">Your Feedback</label>
+            <textarea rows="4" placeholder="Write your feedback..." class="w-full px-4 py-2 rounded bg-[#4a3f3f] text-[#F4B5A4] focus:outline-none"></textarea>
+          </div>
+          <button type="submit" class="px-6 py-2 rounded text-white" style="background-color:#F4B5A4;">Submit</button>
+        </form>
+      </div>
+
+      <!-- Display Feedback -->
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold mb-4">Customer Feedback</h2>
+        <div class="bg-[#4a3f3f] p-4 rounded shadow text-sm">
+          <p>🌟 "Absolutely love the designs! My living room looks fabulous now."</p>
+        </div>
+        <div class="bg-[#4a3f3f] p-4 rounded shadow text-sm">
+          <p>🌟 "Quick delivery and great customer service — highly recommended."</p>
+        </div>
+        <div class="bg-[#4a3f3f] p-4 rounded shadow text-sm">
+          <p>🌟 "The wooden textures are beautiful, and quality exceeded expectations!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#363130] text-[#F4B5A4] py-8 mt-20">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+      <div class="flex justify-center items-center space-x-2">
+        <img src="imags/logo.svg" alt="Logo" class="h-28 object-contain">
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Category</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Living Room</a></li>
+          <li><a href="#" class="hover:underline">Bed Room</a></li>
+          <li><a href="#" class="hover:underline">Kitchen</a></li>
+          <li><a href="#" class="hover:underline">Bath Room</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Popular Product</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Single Sofa Black</a></li>
+          <li><a href="#" class="hover:underline">Wooden Bookcase</a></li>
+          <li><a href="#" class="hover:underline">Wooden Chair</a></li>
+          <li><a href="#" class="hover:underline">Luxury White Bed</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Sitemap</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Product</a></li>
+          <li><a href="#" class="hover:underline">Services</a></li>
+          <li><a href="#" class="hover:underline">Article</a></li>
+          <li><a href="#" class="hover:underline">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Follow Us</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Facebook</a></li>
+          <li><a href="#" class="hover:underline">Instagram</a></li>
+          <li><a href="#" class="hover:underline">TikTok</a></li>
+          <li><a href="#" class="hover:underline">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

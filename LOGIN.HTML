@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Register</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      width: 800px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      background: #fff;
+    }
+
+    .left-panel {
+      width: 40%;
+      background-color: #363130;
+      color: white;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .left-panel h2 {
+      margin-bottom: 10px;
+    }
+
+    .left-panel p {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .left-panel button {
+      background-color: transparent;
+      border: 2px solid #F4B5A4;
+      color: #F4B5A4;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .left-panel button:hover {
+      background-color: #F4B5A4;
+      color: #363130;
+    }
+
+    .form-panel {
+      width: 60%;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #363130;
+      margin-bottom: 25px;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #363130;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #F4B5A4;
+      border: none;
+      color: #363130;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #e3a694;
+    }
+
+    .toggle-form {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .toggle-form a {
+      color: #F4B5A4;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .toggle-form a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        width: 90%;
+      }
+
+      .left-panel,
+      .form-panel {
+        width: 100%;
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body style="background-color:#696362;">
+
+  <div class="container">
+    <div class="left-panel">
+      <h2 id="panel-title">Hello, Welcome!</h2>
+      <p id="panel-subtext">Don't have an account yet?</p>
+      <button id="toggle-button">Register</button>
+    </div>
+
+    <div class="form-panel">
+      <!-- Login Form -->
+      <div id="login-form">
+        <h1>Login</h1>
+        <form>
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Enter your password" required>
+          </div>
+          <button type="submit"  id="register-submit">Login</button>
+        </form>
+      </div>
+
+      <!-- Registration Form -->
+      <div id="register-form" class="hidden">
+        <h1>Register</h1>
+        <form>
+          <div class="form-group">
+            <label for="register-name">Full Name</label>
+            <input type="text" id="register-name" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <input type="email" id="register-email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" placeholder="Create a password" required>
+          </div>
+          <div class="form-group">
+            <label for="register-confirm">Confirm Password</label>
+            <input type="password" id="register-confirm" placeholder="Confirm your password" required>
+          </div>
+          <button type="submit"  id="register-submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+    const toggleBtn = document.getElementById("toggle-button");
+    const panelTitle = document.getElementById("panel-title");
+    const panelSubtext = document.getElementById("panel-subtext");
+
+    toggleBtn.addEventListener("click", () => {
+      const isLoginVisible = !loginForm.classList.contains("hidden");
+
+      if (isLoginVisible) {
+        loginForm.classList.add("hidden");
+        registerForm.classList.remove("hidden");
+        toggleBtn.textContent = "Login";
+        panelTitle.textContent = "Join Us!";
+        panelSubtext.textContent = "Already have an account?";
+      } else {
+        registerForm.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        toggleBtn.textContent = "Register";
+        panelTitle.textContent = "Hello, Welcome!";
+        panelSubtext.textContent = "Don't have an account yet?";
+      }
+    });
+  </script>
+<script>
+    // Toggle logic from earlier...
+  
+    // Redirect on successful registration
+    const registerSubmit = document.getElementById("register-submit");
+  
+    registerSubmit.addEventListener("click", () => {
+      // You can add validation here if needed
+      // Simulate success and redirect
+      window.location.href = "index.html"; // change this to your desired URL
+    });
+  </script>
+</body>
+</html>
