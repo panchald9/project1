@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAJAVAT | Our Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sajavat: {
+              primary: '#F4B5A4',
+              dark: '#363130',
+              light: '#FFF9F8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body class="bg-sajavat-dark text-sajavat-light font-sans">
+
+ <!-- Navbar -->
+ <nav class="shadow-md" style="background-color:#363130;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center space-x-3">
+          <a href="#" class="flex items-center space-x-2">
+            <span class="text-2xl font-extrabold" style="color:#F4B5A4;">SAJAVAT</span>
+          </a>
+        </div>
+        <div class="hidden sm:flex space-x-8">
+          <a href="index.html" class="font-medium hover:text-white" style="color:#F4B5A4;">Home</a>
+          <a href="About.html" class="font-medium hover:text-white" style="color:#F4B5A4;">About</a>
+          <a href="service.html" class="font-medium hover:text-white" style="color:#F4B5A4;">Services</a>
+          <a href="contect.html" class="font-medium hover:text-white" style="color:#F4B5A4;">Contact</a>
+        </div>
+        <div class="hidden sm:flex space-x-4 items-center">
+          <a href="LOGIN.HTML" class="px-4 py-2 text-sm font-medium border border-gray-500 rounded hover:bg-gray-700" style="color:#F4B5A4;">Login / Sign Up</a>
+          <button onclick="openSubscribeModal()" class="px-4 py-2 text-sm font-medium border border-[#F4B5A4] text-[#F4B5A4] rounded hover:bg-[#F4B5A4] hover:text-[#363130] transition">Subscribe</button>
+        </div>
+        <div class="sm:hidden flex items-center">
+          <button type="button" class="p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="sm:hidden px-4 pt-2 pb-3 space-y-1">
+      <a href="index.html" class="block font-medium" style="color:#F4B5A4;">Home</a>
+      <a href="About.html" class="block font-medium" style="color:#F4B5A4;">About</a>
+      <a href="service.html" class="block font-medium" style="color:#F4B5A4;">Services</a>
+      <a href="contect.html" class="block font-medium" style="color:#F4B5A4;">Contact</a>
+      <a href="LOGIN.HTML" class="block font-medium mt-2" style="color:#F4B5A4;">Login / Sign Up</a>
+      <button onclick="openSubscribeModal()" class="block w-full text-left font-medium mt-2" style="color:#F4B5A4;">Subscribe</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+      <!-- Services -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white text-sajavat-dark p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
+          <h2 class="text-2xl font-semibold mb-3">Interior Design & Consultation</h2>
+          <p>Transform your space with expert interior design services.</p>
+          <ul class="list-disc pl-6 mt-3 text-gray-700">
+            <li>Personalized design consultation</li>
+            <li>Space planning & layout optimization</li>
+            <li>Mood boards & 3D visualizations</li>
+          </ul>
+        </div>
+
+        <div class="bg-white text-sajavat-dark p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
+          <h2 class="text-2xl font-semibold mb-3">Custom Furniture & Décor</h2>
+          <p>Furniture that fits your style and space perfectly.</p>
+          <ul class="list-disc pl-6 mt-3 text-gray-700">
+            <li>Modular & handcrafted furniture</li>
+            <li>Home décor accessories</li>
+            <li>Wall art, mirrors, & accent pieces</li>
+          </ul>
+        </div>
+
+        <div class="bg-white text-sajavat-dark p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
+          <h2 class="text-2xl font-semibold mb-3">Soft Furnishings & Upholstery</h2>
+          <p>Elegant soft furnishings designed to add warmth to your space.</p>
+          <ul class="list-disc pl-6 mt-3 text-gray-700">
+            <li>Curtains, drapes, & blinds</li>
+            <li>Cushions, bed linen, & rugs</li>
+            <li>Upholstery & reupholstery</li>
+          </ul>
+        </div>
+
+        <div class="bg-white text-sajavat-dark p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
+          <h2 class="text-2xl font-semibold mb-3">Wall Treatments & Finishes</h2>
+          <p>Premium wall treatments that make a statement.</p>
+          <ul class="list-disc pl-6 mt-3 text-gray-700">
+            <li>Textured paints & finishes</li>
+            <li>Designer wallpapers</li>
+            <li>Wall paneling & cladding</li>
+          </ul>
+        </div>
+
+        <div class="bg-white text-sajavat-dark p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 col-span-full">
+          <h2 class="text-2xl font-semibold mb-3">Turnkey Project Execution</h2>
+          <p>End-to-end project management with attention to detail.</p>
+          <ul class="list-disc pl-6 mt-3 text-gray-700">
+            <li>Site supervision</li>
+            <li>Vendor coordination</li>
+            <li>Quality control</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Why Choose Section -->
+      <section class="bg-sajavat-primary text-sajavat-dark p-6 rounded-2xl shadow-md">
+        <h2 class="text-2xl font-bold mb-3">Why Choose SAJAVAT?</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Experienced Designers</li>
+          <li>Attention to Detail</li>
+          <li>Bespoke Solutions</li>
+          <li>Timely Delivery</li>
+          <li>Affordable Luxury</li>
+        </ul>
+      </section>
+
+      <!-- Contact Info -->
+      <section class="bg-white text-sajavat-dark p-6 rounded-2xl shadow-md">
+        <h2 class="text-2xl font-bold mb-2">Get in Touch</h2>
+        <p class="text-gray-700">Let’s create something beautiful together.</p>
+        <div class="mt-4 space-y-2">
+          <p><i class="fas fa-phone-alt text-sajavat-primary"></i> <strong>Call / WhatsApp:</strong> +91-XXXXXXXXXX</p>
+          <p><i class="fas fa-envelope text-sajavat-primary"></i> <strong>Email:</strong> contact@sajavat.in</p>
+          <p><i class="fas fa-map-marker-alt text-sajavat-primary"></i> <strong>Visit Us:</strong> [Insert Address]</p>
+          <p><i class="fas fa-globe text-sajavat-primary"></i> <strong>Website:</strong> www.sajavat.in</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-sajavat-dark text-sajavat-primary py-8 mt-20">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div class="flex justify-center md:justify-start items-center space-x-2">
+        <img src="imags/logo.svg" alt="Logo" class="h-28 object-contain">
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Category</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Living Room</a></li>
+          <li><a href="#" class="hover:underline">Bed Room</a></li>
+          <li><a href="#" class="hover:underline">Kitchen</a></li>
+          <li><a href="#" class="hover:underline">Bath Room</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Popular Product</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Single Sofa Black</a></li>
+          <li><a href="#" class="hover:underline">Wooden Bookcase</a></li>
+          <li><a href="#" class="hover:underline">Wooden Chair</a></li>
+          <li><a href="#" class="hover:underline">Luxury White Bed</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Sitemap</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Product</a></li>
+          <li><a href="#" class="hover:underline">Services</a></li>
+          <li><a href="#" class="hover:underline">Article</a></li>
+          <li><a href="#" class="hover:underline">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Follow Us</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">Facebook</a></li>
+          <li><a href="#" class="hover:underline">Instagram</a></li>
+          <li><a href="#" class="hover:underline">TikTok</a></li>
+          <li><a href="#" class="hover:underline">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

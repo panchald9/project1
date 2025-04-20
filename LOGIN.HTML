@@ -1,243 +1,192 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login / Register</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login / Register</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script>
+      const firebaseConfig = {
+  apiKey: "AIzaSyAoVskrYSYtg7vjcATlRRR9UQC1VD0WQ9g",
+  authDomain: "dhruvsou.firebaseapp.com",
+  projectId: "dhruvsou",
+  storageBucket: "dhruvsou.firebasestorage.app",
+  messagingSenderId: "25196617835",
+  appId: "1:25196617835:web:e09e20ee009869318bd12e"
+};
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .container {
-      display: flex;
-      width: 800px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      background: #fff;
-    }
-
-    .left-panel {
-      width: 40%;
-      background-color: #363130;
-      color: white;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    .left-panel h2 {
-      margin-bottom: 10px;
-    }
-
-    .left-panel p {
-      font-size: 14px;
-      margin-bottom: 30px;
-    }
-
-    .left-panel button {
-      background-color: transparent;
-      border: 2px solid #F4B5A4;
-      color: #F4B5A4;
-      padding: 10px 20px;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .left-panel button:hover {
-      background-color: #F4B5A4;
-      color: #363130;
-    }
-
-    .form-panel {
-      width: 60%;
-      padding: 40px;
-    }
-
-    h1 {
-      color: #363130;
-      margin-bottom: 25px;
-      font-size: 24px;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #363130;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-
-    button[type="submit"] {
-      width: 100%;
-      padding: 12px;
-      background-color: #F4B5A4;
-      border: none;
-      color: #363130;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #e3a694;
-    }
-
-    .toggle-form {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 14px;
-      color: #666;
-    }
-
-    .toggle-form a {
-      color: #F4B5A4;
-      font-weight: bold;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .toggle-form a:hover {
-      text-decoration: underline;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        width: 90%;
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              sajavat: {
+                primary: '#F4B5A4',
+                dark: '#363130',
+                light: '#FFF9F8'
+              }
+            }
+          }
+        }
       }
-
-      .left-panel,
-      .form-panel {
-        width: 100%;
-        padding: 30px;
-      }
-    }
-  </style>
-</head>
-<body style="background-color:#696362;">
-
-  <div class="container">
-    <div class="left-panel">
-      <h2 id="panel-title">Hello, Welcome!</h2>
-      <p id="panel-subtext">Don't have an account yet?</p>
-      <button id="toggle-button">Register</button>
-    </div>
-
-    <div class="form-panel">
-      <!-- Login Form -->
-      <div id="login-form">
-        <h1>Login</h1>
-        <form>
-          <div class="form-group">
-            <label for="login-email">Email</label>
-            <input type="email" id="login-email" placeholder="Enter your email" required>
-          </div>
-          <div class="form-group">
-            <label for="login-password">Password</label>
-            <input type="password" id="login-password" placeholder="Enter your password" required>
-          </div>
-          <button type="submit"  id="register-submit">Login</button>
-        </form>
+    </script>
+  </head>
+  <body class="bg-sajavat-light flex items-center justify-center h-screen">
+    <div class="bg-white rounded-xl shadow-lg flex flex-col md:flex-row w-full max-w-4xl overflow-hidden">
+      <div class="bg-sajavat-dark text-white w-full md:w-1/2 p-8 flex flex-col justify-center items-center">
+        <h2 class="text-2xl font-bold mb-4" id="panel-title">Hello, Welcome!</h2>
+        <p class="mb-6" id="panel-subtext">Don't have an account yet?</p>
+        <button id="toggle-button" class="border border-sajavat-primary text-sajavat-primary px-4 py-2 rounded-full hover:bg-sajavat-primary hover:text-sajavat-dark">Register</button>
       </div>
 
-      <!-- Registration Form -->
-      <div id="register-form" class="hidden">
-        <h1>Register</h1>
-        <form>
-          <div class="form-group">
-            <label for="register-name">Full Name</label>
-            <input type="text" id="register-name" placeholder="Enter your full name" required>
+      <div class="w-full md:w-1/2 p-8">
+        <!-- Login Form -->
+        <div id="login-form">
+          <h1 class="text-2xl font-semibold text-sajavat-dark mb-6">Login</h1>
+          <form onsubmit="loginWithEmail(event)">
+            <div class="mb-4">
+              <label class="block text-sm font-bold mb-2" for="login-email">Email</label>
+              <input class="w-full px-3 py-2 border rounded" type="email" id="login-email" placeholder="Enter your email" required />
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-bold mb-2" for="login-password">Password</label>
+              <input class="w-full px-3 py-2 border rounded" type="password" id="login-password" placeholder="Enter your password" required />
+            </div>
+            <button type="submit" id="btn-submit" class="w-full bg-sajavat-primary text-white py-2 rounded hover:bg-pink-400">Login</button>
+          </form>
+
+          <div class="mt-6 text-center text-gray-500 text-sm">or login with</div>
+
+          <div class="flex justify-center gap-4 mt-4">
+            <button onclick="googleLogin()" class="flex items-center gap-2 bg-white border border-gray-300 rounded px-4 py-2">
+              <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" class="w-5 h-5" /> Google
+            </button>
+            <button onclick="appleLogin()" class="flex items-center gap-2 bg-white border border-gray-300 rounded px-4 py-2">
+              <img src="https://www.svgrepo.com/show/303128/apple-logo.svg" alt="Apple" class="w-5 h-5" /> Apple
+            </button>
+            <button onclick="facebookLogin()" class="flex items-center gap-2 bg-white border border-gray-300 rounded px-4 py-2">
+              <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" alt="Facebook" class="w-5 h-5" /> Facebook
+            </button>
           </div>
-          <div class="form-group">
-            <label for="register-email">Email</label>
-            <input type="email" id="register-email" placeholder="Enter your email" required>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="register-form" class="hidden">
+          <h1 class="text-2xl font-semibold text-sajavat-dark mb-6">Register</h1>
+          <form onsubmit="registerWithEmail(event)">
+            <div class="mb-4">
+              <label class="block text-sm font-bold mb-2" for="register-name">Full Name</label>
+              <input class="w-full px-3 py-2 border rounded" type="text" id="register-name" placeholder="Enter your full name" required />
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-bold mb-2" for="register-email">Email</label>
+              <input class="w-full px-3 py-2 border rounded" type="email" id="register-email" placeholder="Enter your email" required />
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-bold mb-2" for="register-password">Password</label>
+              <input class="w-full px-3 py-2 border rounded" type="password" id="register-password" placeholder="Create a password" required />
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-bold mb-2" for="register-confirm">Confirm Password</label>
+              <input class="w-full px-3 py-2 border rounded" type="password" id="register-confirm" placeholder="Confirm your password" required />
+            </div>
+            <button type="submit" id="register-submit" class="w-full bg-sajavat-primary text-white py-2 rounded hover:bg-pink-400">Register</button>
+          </form>
+
+          <div class="mt-6 text-center text-gray-500 text-sm">or register with</div>
+
+          <div class="flex justify-center gap-4 mt-4">
+            <button onclick="googleLogin()" class="flex items-center gap-2 bg-white border border-gray-300 rounded px-4 py-2">
+              <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" class="w-5 h-5" /> Google
+            </button>
+            <button onclick="appleLogin()" class="flex items-center gap-2 bg-white border border-gray-300 rounded px-4 py-2">
+              <img src="https://www.svgrepo.com/show/303128/apple-logo.svg" alt="Apple" class="w-5 h-5" /> Apple
+            </button>
+            <button onclick="facebookLogin()" class="flex items-center gap-2 bg-white border border-gray-300 rounded px-4 py-2">
+              <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" alt="Facebook" class="w-5 h-5" /> Facebook
+            </button>
           </div>
-          <div class="form-group">
-            <label for="register-password">Password</label>
-            <input type="password" id="register-password" placeholder="Create a password" required>
-          </div>
-          <div class="form-group">
-            <label for="register-confirm">Confirm Password</label>
-            <input type="password" id="register-confirm" placeholder="Confirm your password" required>
-          </div>
-          <button type="submit"  id="register-submit">Register</button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    const loginForm = document.getElementById("login-form");
-    const registerForm = document.getElementById("register-form");
-    const toggleBtn = document.getElementById("toggle-button");
-    const panelTitle = document.getElementById("panel-title");
-    const panelSubtext = document.getElementById("panel-subtext");
+    <script>
+      const loginForm = document.getElementById("login-form");
+      const registerForm = document.getElementById("register-form");
+      const toggleBtn = document.getElementById("toggle-button");
+      const panelTitle = document.getElementById("panel-title");
+      const panelSubtext = document.getElementById("panel-subtext");
 
-    toggleBtn.addEventListener("click", () => {
-      const isLoginVisible = !loginForm.classList.contains("hidden");
+      toggleBtn.addEventListener("click", () => {
+        const isLoginVisible = !loginForm.classList.contains("hidden");
 
-      if (isLoginVisible) {
-        loginForm.classList.add("hidden");
-        registerForm.classList.remove("hidden");
-        toggleBtn.textContent = "Login";
-        panelTitle.textContent = "Join Us!";
-        panelSubtext.textContent = "Already have an account?";
-      } else {
-        registerForm.classList.add("hidden");
-        loginForm.classList.remove("hidden");
-        toggleBtn.textContent = "Register";
-        panelTitle.textContent = "Hello, Welcome!";
-        panelSubtext.textContent = "Don't have an account yet?";
+        if (isLoginVisible) {
+          loginForm.classList.add("hidden");
+          registerForm.classList.remove("hidden");
+          toggleBtn.textContent = "Login";
+          panelTitle.textContent = "Join Us!";
+          panelSubtext.textContent = "Already have an account?";
+        } else {
+          registerForm.classList.add("hidden");
+          loginForm.classList.remove("hidden");
+          toggleBtn.textContent = "Register";
+          panelTitle.textContent = "Hello, Welcome!";
+          panelSubtext.textContent = "Don't have an account yet?";
+        }
+      });
+
+      function googleLogin() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).catch(error => alert(error.message));
       }
-    });
-  </script>
-<script>
-    // Toggle logic from earlier...
-  
-    // Redirect on successful registration
-    const registerSubmit = document.getElementById("register-submit");
-  
-    registerSubmit.addEventListener("click", () => {
-      // You can add validation here if needed
-      // Simulate success and redirect
-      window.location.href = "index.html"; // change this to your desired URL
-    });
-  </script>
-</body>
+
+      function facebookLogin() {
+        const provider = new firebase.auth.FacebookAuthProvider();
+        firebase.auth().signInWithPopup(provider).catch(error => alert(error.message));
+      }
+
+      function appleLogin() {
+        alert("Apple login requires additional setup via Apple Developer Console");
+      }
+
+      function loginWithEmail(e) {
+        e.preventDefault();
+        const email = document.getElementById("login-email").value;
+        const password = document.getElementById("login-password").value;
+
+        firebase.auth().signInWithEmailAndPassword(email, password)
+          .then(userCredential => {
+            alert("Logged in as: " + userCredential.user.email);
+          })
+          .catch(error => {
+            alert("Login error: " + error.message);
+          });
+      }
+
+      function registerWithEmail(e) {
+        e.preventDefault();
+        const email = document.getElementById("register-email").value;
+        const password = document.getElementById("register-password").value;
+        const confirmPassword = document.getElementById("register-confirm").value;
+
+        if (password !== confirmPassword) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then(userCredential => {
+            alert("Registered as: " + userCredential.user.email);
+          })
+          .catch(error => {
+            alert("Registration error: " + error.message);
+          });
+      }
+    </script>
+  </body>
 </html>

@@ -1,0 +1,188 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Responsive Navbar with Shopping Cart</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body style="background-color:#363130;">
+      <!-- Navbar -->
+<nav class="shadow-md bg-[#363130]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <a href="#" class="flex items-center space-x-2">
+          <span class="text-2xl font-extrabold text-[#F4B5A4]">SAJAVAT</span>
+        </a>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="font-medium hover:text-white text-[#F4B5A4]">Home</a>
+        <a href="About.html" class="font-medium hover:text-white text-[#F4B5A4]">About</a>
+        <a href="#" class="font-medium hover:text-white text-[#F4B5A4]">Services</a>
+        <a href="#" class="font-medium hover:text-white text-[#F4B5A4]">Contact</a>
+      </div>
+
+      <!-- Right Side Buttons -->
+      <div class="flex items-center space-x-4">
+        <!-- Login -->
+        <a href="LOGIN.HTML" class="hidden sm:inline-block px-4 py-2 text-sm font-medium border border-gray-500 rounded hover:bg-gray-700 text-[#F4B5A4]">Login / Sign Up</a>
+
+        <!-- Subscribe -->
+        <button onclick="openSubscribeModal()" class="hidden sm:inline-block px-4 py-2 text-sm font-medium border border-[#F4B5A4] text-[#F4B5A4] rounded hover:bg-[#F4B5A4] hover:text-[#363130] transition">Subscribe</button>
+
+        <!-- Cart Icon -->
+        <button onclick="openCartModal()" class="text-[#F4B5A4] hover:text-white">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 2L6 3M18 2L18 3M6 3H18L21 13H3L6 3Z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+      <!-- Shopping Cart Modal -->
+      <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+        <div class="bg-white p-6 rounded-lg max-w-sm w-full text-center shadow-lg relative">
+          <h2 class="text-xl font-bold mb-4 text-[#363130]">Shopping Cart</h2>
+          <div id="cartItems" class="mb-4">
+            <!-- Cart Items will appear here -->
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="font-bold">Total: $<span id="cartTotal">0.00</span></span>
+            <button onclick="openCheckout()" class="bg-[#363130] text-white px-4 py-2 rounded-full hover:bg-gray-800 transition">Checkout</button>
+          </div>
+          <!-- Close Button -->
+          <button onclick="closeCartModal()" class="absolute top-2 right-2 text-[#363130] text-xl">&times;</button>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="max-w-3xl mx-auto mt-8 px-4 text-center">
+        <h1 class="text-6xl font-extrabold leading-snug" style="color:#F4B5A4;">
+          Transform Your Space,<br>
+          Elevate Your Style.
+        </h1>
+      </div>
+
+      <!-- Product Section -->
+      <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="product-container p-6 bg-gray-100 rounded-lg shadow-lg">
+          <img src="imags/Furniture1.jpg" alt="Product Image" class="w-full h-48 md:h-64 object-cover rounded-lg">
+          <h3 class="text-xl font-semibold mt-4">Luxury Wooden Chair</h3>
+          <p class="text-gray-600 mt-2">$350.00</p>
+          <button class="bg-blue-500 text-white py-2 px-6 mt-4 rounded-lg" onclick="addToCart(1, 'Luxury Wooden Chair', 350.00)">Add to Cart</button>
+        </div>
+
+        <div class="product-container p-6 bg-gray-100 rounded-lg shadow-lg">
+          <img src="imags/Furniture2.png" alt="Product Image" class="w-full h-48 md:h-64 object-cover rounded-lg">
+          <h3 class="text-xl font-semibold mt-4">Elegant Sofa</h3>
+          <p class="text-gray-600 mt-2">$500.00</p>
+          <button class="bg-blue-500 text-white py-2 px-6 mt-4 rounded-lg" onclick="addToCart(2, 'Elegant Sofa', 500.00)">Add to Cart</button>
+        </div>
+
+        <div class="product-container p-6 bg-gray-100 rounded-lg shadow-lg">
+          <img src="imags/Furniture3.jpg" alt="Product Image" class="w-full h-48 md:h-64 object-cover rounded-lg">
+          <h3 class="text-xl font-semibold mt-4">Modern Coffee Table</h3>
+          <p class="text-gray-600 mt-2">$150.00</p>
+          <button class="bg-blue-500 text-white py-2 px-6 mt-4 rounded-lg" onclick="addToCart(3, 'Modern Coffee Table', 150.00)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="bg-[#363130] text-[#F4B5A4] py-8 mt-20">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+          <div class="flex justify-center items-center space-x-2">
+            <img src="imags/logo.svg" alt="Logo" class="h-28 object-contain">
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Category</h3>
+            <ul class="space-y-1 text-sm">
+              <li><a href="#" class="hover:underline">Living Room</a></li>
+              <li><a href="#" class="hover:underline">Bed Room</a></li>
+              <li><a href="#" class="hover:underline">Kitchen</a></li>
+              <li><a href="#" class="hover:underline">Bath Room</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Popular Product</h3>
+            <ul class="space-y-1 text-sm">
+              <li><a href="#" class="hover:underline">Single Sofa Black</a></li>
+              <li><a href="#" class="hover:underline">Wooden Bookcase</a></li>
+              <li><a href="#" class="hover:underline">Wooden Chair</a></li>
+              <li><a href="#" class="hover:underline">Luxury White Bed</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Sitemap</h3>
+            <ul class="space-y-1 text-sm">
+              <li><a href="#" class="hover:underline">Product</a></li>
+              <li><a href="#" class="hover:underline">Services</a></li>
+              <li><a href="#" class="hover:underline">Article</a></li>
+              <li><a href="#" class="hover:underline">About Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Follow Us</h3>
+            <ul class="space-y-1 text-sm">
+              <li><a href="#" class="hover:underline">Facebook</a></li>
+              <li><a href="#" class="hover:underline">Instagram</a></li>
+              <li><a href="#" class="hover:underline">TikTok</a></li>
+              <li><a href="#" class="hover:underline">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        let cart = [];
+
+        function addToCart(productId, name, price) {
+          const product = { productId, name, price };
+          cart.push(product);
+          updateCart();
+        }
+
+        function updateCart() {
+          const cartItemsDiv = document.getElementById("cartItems");
+          const cartTotalDiv = document.getElementById("cartTotal");
+
+          cartItemsDiv.innerHTML = '';
+          let total = 0;
+
+          cart.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('flex', 'justify-between', 'items-center', 'mb-2');
+            itemElement.innerHTML = `
+              <span>${item.name}</span>
+              <span>$${item.price.toFixed(2)}</span>
+            `;
+            cartItemsDiv.appendChild(itemElement);
+            total += item.price;
+          });
+
+          cartTotalDiv.textContent = total.toFixed(2);
+        }
+
+        function openCartModal() {
+          const cartModal = document.getElementById("cartModal");
+          cartModal.classList.remove("hidden");
+        }
+
+        function closeCartModal() {
+          const cartModal = document.getElementById("cartModal");
+          cartModal.classList.add("hidden");
+        }
+
+        function openCheckout() {
+          alert("Proceeding to checkout...");
+          // Add checkout logic here
+        }
+      </script>
+    </body>
+    </html>
