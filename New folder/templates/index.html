@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Navbar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="background-color:#363130;">
+<!-- Navbar -->
+<!-- Navbar -->
+<nav class="shadow-md" style="background-color:#363130;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      
+      <!-- Brand -->
+      <div class="flex items-center space-x-3">
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="text-2xl font-extrabold" style="color:#F4B5A4;">SAJAVAT</span>
+        </a>
+      </div>
+
+      <!-- Links -->
+      <div class="hidden sm:flex space-x-8">
+        <a href="index.html" class="font-medium hover:text-white" style="color:#F4B5A4;">Home</a>
+        <a href="About.html" class="font-medium hover:text-white" style="color:#F4B5A4;">About</a>
+        <a href="service.html" class="font-medium hover:text-white" style="color:#F4B5A4;">Services</a>
+        <a href="contect.html" class="font-medium hover:text-white" style="color:#F4B5A4;">Contact</a>
+      </div>
+
+      <!-- User Info & Cart -->
+      <div class="hidden sm:flex items-center space-x-6">
+
+        <!-- Username -->
+        <div id="user-info" class="text-[#F4B5A4] font-medium"></div>
+
+        <!-- Cart Icon -->
+        <div class="relative">
+          <a href="cart.html">
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 3h18l-1 12H4L3 3zm0 0v0M4 16h16M4 16v2M20 16v2m-1 0a1 1 0 001 1v0a1 1 0 01-1 1v0" />
+            </svg>
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center text-center">0</span>
+          </a>
+        </div>
+
+        <!-- Login / Sign Up Button -->
+        <div id="login-signup">
+          <a href="LOGIN.HTML"
+            class="px-4 py-2 text-sm font-medium border border-gray-500 rounded hover:bg-gray-700"
+            style="color:#F4B5A4;">Login / Sign Up</a>
+        </div>
+
+        <!-- Subscribe -->
+        <a href="subscribe.html">
+          <button onclick="openSubscribeModal()"
+            class="px-4 py-2 text-sm font-medium border border-[#F4B5A4] text-[#F4B5A4] rounded hover:bg-[#F4B5A4] hover:text-[#363130] transition">Subscribe</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Show username if logged in
+  const username = localStorage.getItem('username');
+  if (username) {
+    document.getElementById('user-info').textContent = `Hi, ${username}`;
+    document.getElementById('login-signup').style.display = 'none';
+  }
+
+  // Cart count from localStorage
+  const cartCount = localStorage.getItem('cartCount') || 0;
+  document.getElementById('cart-count').textContent = cartCount;
+</script>
+
+
+<!-- Subscribe Modal -->
+<div id="subscribeModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+  <div class="bg-white p-6 rounded-lg max-w-sm w-full text-center shadow-lg relative">
+    <h2 class="text-xl font-bold mb-4 text-[#363130]">Subscribe to our Newsletter</h2>
+    <input type="email" id="subscriberEmail" placeholder="Enter your email" class="w-full px-4 py-2 border rounded mb-4 focus:outline-none focus:ring-2 focus:ring-[#F4B5A4]" />
+    <button onclick="submitSubscription()" class="bg-[#363130] text-white px-4 py-2 rounded-full hover:bg-gray-800 transition">Submit</button>
+    <!-- Close Button -->
+    <button onclick="closeSubscribeModal()" class="absolute top-2 right-2 text-[#363130] text-xl">&times;</button>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="max-w-3xl mx-auto mt-8 px-4 text-center">
+  <h1 class="text-6xl font-extrabold leading-snug" style="color:#F4B5A4;">
+    Transform Your Space,<br>
+    Elevate Your Style.
+  </h1>
+  <div class="flex justify-center mt-8">
+    <div class="flex items-center bg-[#F4B5A4] rounded-full px-4 py-2 w-2/3 sm:w-1/2 shadow-md">
+      <svg class="w-5 h-5 text-[#363130] mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 6.5 6.5a7.5 7.5 0 0 0 10.15 10.15z" />
+      </svg>
+      <input type="text" placeholder="Search your property..." class="flex-grow bg-[#F4B5A4] text-[#363130] placeholder-[#363130] focus:outline-none" />
+      <button class="bg-[#363130] text-white text-sm font-semibold px-4 py-1 rounded-full ml-2">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTION -->
+<div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+  <div class="product-container p-6 bg-gray-100 rounded-lg shadow-lg">
+    <img src="imags/Furniture1.jpg" alt="Product Image" class="w-full h-48 md:h-64 object-cover rounded-lg">
+    <h3 class="text-xl font-semibold mt-4">Luxury Wooden Chair</h3>
+    <p class="text-gray-600 mt-2">$350.00</p>
+    <button
+    class="bg-blue-500 text-white py-2 px-6 mt-4 rounded-lg"
+    onclick="addToCart({id: 1,name: 'Luxury Wooden Chair',price: 350,image: 'imags/Furniture1.jpg'})">Checkout</button>
+  </div>
+
+  <div class="product-container p-6 bg-gray-100 rounded-lg shadow-lg">
+    <img src="imags/Furniture2.png" alt="Product Image" class="w-full h-48 md:h-64 object-cover rounded-lg">
+    <h3 class="text-xl font-semibold mt-4">Elegant Sofa</h3>
+    <p class="text-gray-600 mt-2">$500.00</p>
+    <button
+    class="bg-blue-500 text-white py-2 px-6 mt-4 rounded-lg"
+    onclick="addToCart({
+      id: 2,
+      name: 'Elegant Sofa',
+      price: 500,
+      image: 'imags/Furniture2.png'
+    })"
+  >Checkout</button>
+  
+  </div>
+
+  <div class="product-container p-6 bg-gray-100 rounded-lg shadow-lg">
+    <img src="imags/furniture3.jpg" alt="Product Image" class="w-full h-48 md:h-64 object-cover rounded-lg">
+    <h3 class="text-xl font-semibold mt-4">Modern Coffee Table</h3>
+    <p class="text-gray-600 mt-2">$150.00</p>
+    <button
+    class="bg-blue-500 text-white py-2 px-6 mt-4 rounded-lg"
+    onclick="addToCart({
+      id: 3,
+      name: 'Modern Coffee Table',
+      price: 150,
+      image: 'imags/furniture3.jpg'
+    })"
+  >Checkout</button>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="bg-[#363130] text-[#F4B5A4] py-8 mt-20">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+    <div class="flex justify-center items-center space-x-2">
+      <img src="imags/logo.svg" alt="Logo" class="h-28 object-contain">
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">Category</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#" class="hover:underline">Living Room</a></li>
+        <li><a href="#" class="hover:underline">Bed Room</a></li>
+        <li><a href="#" class="hover:underline">Kitchen</a></li>
+        <li><a href="#" class="hover:underline">Bath Room</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">Popular Product</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#" class="hover:underline">Single Sofa Black</a></li>
+        <li><a href="#" class="hover:underline">Wooden Bookcase</a></li>
+        <li><a href="#" class="hover:underline">Wooden Chair</a></li>
+        <li><a href="#" class="hover:underline">Luxury White Bed</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">Sitemap</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#" class="hover:underline">Product</a></li>
+        <li><a href="#" class="hover:underline">Services</a></li>
+        <li><a href="#" class="hover:underline">Article</a></li>
+        <li><a href="#" class="hover:underline">About Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">Follow Us</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#" class="hover:underline">Facebook</a></li>
+        <li><a href="#" class="hover:underline">Instagram</a></li>
+        <li><a href="#" class="hover:underline">TikTok</a></li>
+        <li><a href="#" class="hover:underline">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let currentIndex = 0;
+  const sliderImages = document.querySelector(".slider-images");
+  const totalImages = sliderImages.children.length;
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateSlider();
+  }
+
+  function updateSlider() {
+    const offset = -currentIndex * 100;
+    sliderImages.style.transform = `translateX(${offset}%)`;
+  }
+
+  setInterval(nextSlide, 5000); // Auto slider every 5 sec
+
+  function openCheckout(productId) {
+    alert("Checkout clicked for Product ID: " + productId);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    window.openSubscribeModal = function () {
+      const subscribeModal = document.getElementById("subscribeModal");
+      if (subscribeModal) {
+        subscribeModal.classList.remove("hidden");
+      } else {
+        console.error("subscribeModal element not found");
+      }
+    }
+
+    window.submitSubscription = function () {
+      const email = document.getElementById("subscriberEmail").value.trim();
+      if (!email) {
+        alert("Please enter your email.");
+        return;
+      }
+
+      // Simulate submitting the email (you can replace this with actual logic)
+      alert("Subscription successful for email: " + email);
+      // After submitting, close the modal
+      document.getElementById("subscribeModal").classList.add("hidden");
+    }
+  });
+
+  function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Add item to cart
+    cart.push(product);
+
+    // Update localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cartCount", cart.length);
+
+    // Update cart count
+    document.getElementById("cart-count").textContent = cart.length;
+
+    alert("Product added to cart!");
+  }
+
+  // Set cart count on page load
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cart-count').textContent = cart.length;
+</script>
+
+</body>
+</html>
+<!--  -->
