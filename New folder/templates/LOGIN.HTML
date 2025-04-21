@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Register</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sajavat: {
+              primary: '#F4B5A4',
+              dark: '#363130',
+              light: '#FFF9F8'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAoVskrYSYtg7vjcATlRRR9UQC1VD0WQ9g",
+      authDomain: "dhruvsou.firebaseapp.com",
+      projectId: "dhruvsou",
+      storageBucket: "dhruvsou.appspot.com",
+      messagingSenderId: "25196617835",
+      appId: "1:25196617835:web:e09e20ee009869318bd12e"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+<body class="bg-sajavat-light flex items-center justify-center h-screen">
+  <div class="bg-white rounded-xl shadow-lg flex flex-col md:flex-row w-full max-w-4xl overflow-hidden">
+    <div class="bg-sajavat-dark text-white w-full md:w-1/2 p-8 flex flex-col justify-center items-center">
+      <h2 class="text-2xl font-bold mb-4" id="panel-title">Hello, Welcome!</h2>
+      <p class="mb-6" id="panel-subtext">Don't have an account yet?</p>
+      <button id="toggle-button" class="border border-sajavat-primary text-sajavat-primary px-4 py-2 rounded-full hover:bg-sajavat-primary hover:text-sajavat-dark">Register</button>
+    </div>
+
+    <div class="w-full md:w-1/2 p-8">
+      <!-- Login Form -->
+      <div id="login-form">
+        <h1 class="text-2xl font-semibold text-sajavat-dark mb-6">Login</h1>
+        <form onsubmit="loginWithEmail(event)">
+          <input class="w-full px-3 py-2 border rounded mb-4" type="email" id="login-email" placeholder="Email" required />
+          <input class="w-full px-3 py-2 border rounded mb-4" type="password" id="login-password" placeholder="Password" required />
+          <button type="submit" class="w-full bg-sajavat-primary text-white py-2 rounded hover:bg-pink-400">Login</button>
+        </form>
+      </div>
+
+      <!-- Register Form -->
+      <div id="register-form" class="hidden">
+        <h1 class="text-2xl font-semibold text-sajavat-dark mb-6">Register</h1>
+        <form onsubmit="registerWithEmail(event)">
+          <input class="w-full px-3 py-2 border rounded mb-4" type="text" id="register-name" placeholder="Full Name" required />
+          <input class="w-full px-3 py-2 border rounded mb-4" type="email" id="register-email" placeholder="Email" required />
+          <input class="w-full px-3 py-2 border rounded mb-4" type="password" id="register-password" placeholder="Password" required />
+          <input class="w-full px-3 py-2 border rounded mb-4" type="password" id="register-confirm" placeholder="Confirm Password" required />
+          <button type="submit" class="w-full bg-sajavat-primary text-white py-2 rounded hover:bg-pink-400">Register</button>
+        </form>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+    const toggleBtn = document.getElementById("toggle-button");
+    const panelTitle = document.getElementById("panel-title");
+    const panelSubtext = document.getElementById("panel-subtext");
+
+    toggleBtn.addEventListener("click", () => {
+      const showLogin = loginForm.classList.contains("hidden");
+      loginForm.classList.toggle("hidden", !showLogin);
+      registerForm.classList.toggle("hidden", showLogin);
+      toggleBtn.textContent = showLogin ? "Register" : "Login";
+      panelTitle.textContent = showLogin ? "Hello, Welcome!" : "Join Us!";
+      panelSubtext.textContent = showLogin ? "Don't have an account yet?" : "Already have an account?";
+    });
+
+    // Login Function
+
+    const BASE_URL = "http://localhost:5000/api";
+
+function registerWithEmail(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("register-name").value;
+  const email = document.getElementById("register-email").value;
+  const password = document.getElementById("register-password").value;
+  const confirm = document.getElementById("register-confirm").value;
+
+  if (password !== confirm) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+  fetch(`${BASE_URL}/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ name, email, password })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert(data.message);
+    if (data.status === 'success') {
+      document.getElementById("toggle-button").click(); // switch to login
+    }
+  });
+}
+
+function loginWithEmail(event) {
+  event.preventDefault();
+
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+
+  fetch(`${BASE_URL}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert(data.message);
+    if (data.status === 'success') {
+      // Store user data in localStorage (you can also use sessionStorage for more security)
+      localStorage.setItem("username", data.user.name);  // Assuming the response contains user info
+      window.location.href = "index.html"; // Redirect to home page
+    }
+  });
+}
+
+  </script>
+
+  
+</body>
+</html>
+  
